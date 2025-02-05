@@ -463,6 +463,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#running-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running SBA's
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running SBA's">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sbarunner" class="md-nav__link">
+    <span class="md-ellipsis">
+      The SBARunner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mainloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mainloop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple SBA's
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aborting-an-sba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aborting an SBA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-teleop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample TeleOp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -554,6 +614,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#running-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running SBA's
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running SBA's">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sbarunner" class="md-nav__link">
+    <span class="md-ellipsis">
+      The SBARunner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mainloop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mainloop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-sbas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple SBA's
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aborting-an-sba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aborting an SBA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-teleop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample TeleOp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -610,14 +730,244 @@
 <p>and optional parameters:</p>
 <ul>
 <li><code>int tolerance</code> The tolerance to drive the motor to the target position with</li>
-<li><code>boolean useBounds</code> Whether or not to use min/max position sanity checks</li>
-<li><code>int minPos</code> The minimum position the encoder may be at for <code>sanity()</code> to pass. Ignored if <code>useBounds</code> is set to <code>false</code>.</li>
-<li><code>int maxPos</code> The maximum position the encoder may be at for <code>sanity()</code> to pass. Ignored if <code>useBounds</code> is set to <code>false</code>.</li>
+<li><code>int minPos</code> The minimum position the encoder may be at for <code>sanity()</code> to pass. Ignored if not set.</li>
+<li><code>int maxPos</code> The maximum position the encoder may be at for <code>sanity()</code> to pass. Ignored if not set.</li>
 </ul>
+<p>Usage example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">// Move arm to position 1000 with power 0.5</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">new</span><span class="w"> </span><span class="n">MotorSBA</span><span class="p">(</span><span class="n">armMotor</span><span class="p">,</span><span class="w">  </span><span class="mf">0.5</span><span class="p">,</span><span class="w">     </span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1">//           Motor      Power     Target</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1">// Move linear slide to position 2000 with</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1">// power 0.6, but only if it is currently</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1">// between position 1000 and 1500.</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="k">new</span><span class="w"> </span><span class="n">MotorSBA</span><span class="p">(</span><span class="n">slideMotor</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">,</span><span class="w">   </span><span class="mi">2000</span><span class="p">,</span><span class="w">   </span><span class="mi">1000</span><span class="p">,</span><span class="w">           </span><span class="mi">1500</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1">//           Motor       Power  Target  Minimum Start   Maximum Start</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="servosba">ServoSBA</h3>
-<p>...</p>
+<p>This will drive a <code>Servo</code> to a target position. It has the following required parameters:</p>
+<ul>
+<li><code>Servo servo</code> The servo to drive</li>
+<li><code>double targetPos</code> The target position to drive the servo to</li>
+</ul>
+<p>Usage example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">// Move claw servo to position 0.85</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">new</span><span class="w"> </span><span class="n">ServoSBA</span><span class="p">(</span><span class="n">clawServo</span><span class="p">,</span><span class="w"> </span><span class="mf">0.85</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">//           Servo      Target</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="waitsba">WaitSBA</h3>
-<p>...</p>
+<p class="annotate">This will wait a given number of milliseconds (1).</p>
+<ol>
+<li><code>WaitSBA</code> is legal in FTC, as it doesn't use <code>sleep()</code>. If your OpMode uses <code>sleep()</code>, stopping won't work and you won't pass the robot inspection.</li>
+</ol>
+<p>It takes in one required parameter:</p>
+<ul>
+<li><code>double waitMs</code> The number of milliseconds to wait for</li>
+</ul>
+<p>Usage example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1">// Wait for 500ms (.5s)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">new</span><span class="w"> </span><span class="n">WaitSBA</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1">//          Milliseconds</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="running-sbas">Running SBA's</h2>
+<p>Now that you understand the basics of how SBA's work, it's time to learn how to actually run one!</p>
+<h3 id="the-sbarunner">The SBARunner</h3>
+<p>Running a SBA is controlled by the <code>SBARunner</code> class. To run an SBA, you create an instance of the <code>SBARunner</code> class, and use the <code>runSBAs()</code> function.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1">// Create the runner</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">SBARunner</span><span class="w"> </span><span class="n">runner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SBARunner</span><span class="p">();</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1">// Create our SBA</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">MotorSBA</span><span class="w"> </span><span class="n">sba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MotorSBA</span><span class="p">(</span><span class="n">armMotor</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1">// Run the SBA</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">runner</span><span class="p">.</span><span class="na">runSBAs</span><span class="p">(</span><span class="n">sba</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>It's that simple...almost.</p>
+<h3 id="mainloop">Mainloop</h3>
+<p>We've told the <code>SBARunner</code> what SBA to run, but we haven't told it to run it yet. To run it, you'll need to use the <code>loop()</code> function. You can place this in the loop of your TeleOp OpMode, in a state machine loop, or simply in a while loop in autonomous. </p>
+<p>Example for TeleOp.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nd">@TeleOp</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;MyTeleOp&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyTeleOp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">OpMode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Variables, initialization, etc.</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="c1">// Controller handling, telemetry, etc.</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">        </span><span class="c1">// Run the SBARunner loop</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">        </span><span class="n">runner</span><span class="p">.</span><span class="na">loop</span><span class="p">();</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="multiple-sbas">Multiple SBA's</h3>
+<p>Now, like the name suggests, <code>runSBAs()</code> isn't limited just to a single SBA. You can pass in any number of SBA's to <code>runSBAs()</code>, and it will execute each one sequentially.</p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span>
+<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1">// Create the runner</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">SBARunner</span><span class="w"> </span><span class="n">runner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SBARunner</span><span class="p">();</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1">// Create our SBA&#39;s</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">MotorSBA</span><span class="w"> </span><span class="n">sba1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MotorSBA</span><span class="p">(</span><span class="n">armMotor</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">ServoSBA</span><span class="w"> </span><span class="n">sba2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServoSBA</span><span class="p">(</span><span class="n">clawServo</span><span class="p">,</span><span class="w"> </span><span class="mf">0.85</span><span class="p">);</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="c1">// Run the SBA&#39;s</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="n">runner</span><span class="p">.</span><span class="na">runSBAs</span><span class="p">(</span><span class="n">sba1</span><span class="p">,</span><span class="w"> </span><span class="n">sba2</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>We can also create our SBA's inline. Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1">// Create the runner</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">SBARunner</span><span class="w"> </span><span class="n">runner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SBARunner</span><span class="p">();</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1">// Run the SBA&#39;s</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">runner</span><span class="p">.</span><span class="na">runSBAs</span><span class="p">(</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">MotorSBA</span><span class="p">(</span><span class="n">armMotor</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">),</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">ServoSBA</span><span class="p">(</span><span class="n">clawServo</span><span class="p">,</span><span class="w"> </span><span class="mf">0.85</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="aborting-an-sba">Aborting an SBA</h3>
+<p>If an SBA goes wrong, you can use <code>runner.stop()</code>. An example is provided in the TeleOp sample below.</p>
+<div class="admonition warning">
+<p class="admonition-title">Motors and Encoders</p>
+<p>If you abort an SBA that uses motors, the motors will still try to run to their target positions. To stop this, you can set the target position of each motor to its current position, and set its power to zero.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span>
+<span class="normal"><a href="#__codelineno-9-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">// Abort our SBA&#39;s</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">runner</span><span class="p">.</span><span class="na">stop</span><span class="p">();</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1">// Stop moving our arm motor by setting its</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1">// target position to its current position</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="n">armMotor</span><span class="p">.</span><span class="na">setTargetPosition</span><span class="p">(</span><span class="n">armMotor</span><span class="p">.</span><span class="na">getCurrentPosition</span><span class="p">());</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="c1">// Set arm power to 0</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="n">armMotor</span><span class="p">.</span><span class="na">setPower</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<h3 id="sample-teleop">Sample TeleOp</h3>
+<details class="note" open="open">
+<summary>Sample TeleOp</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span>
+<span class="normal"><a href="#__codelineno-10-27">27</a></span>
+<span class="normal"><a href="#__codelineno-10-28">28</a></span>
+<span class="normal"><a href="#__codelineno-10-29">29</a></span>
+<span class="normal"><a href="#__codelineno-10-30">30</a></span>
+<span class="normal"><a href="#__codelineno-10-31">31</a></span>
+<span class="normal"><a href="#__codelineno-10-32">32</a></span>
+<span class="normal"><a href="#__codelineno-10-33">33</a></span>
+<span class="normal"><a href="#__codelineno-10-34">34</a></span>
+<span class="normal"><a href="#__codelineno-10-35">35</a></span>
+<span class="normal"><a href="#__codelineno-10-36">36</a></span>
+<span class="normal"><a href="#__codelineno-10-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nd">@TeleOp</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;MyTeleOp&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyTeleOp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">OpMode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DcMotorEx</span><span class="w"> </span><span class="n">armMotor</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Servo</span><span class="w"> </span><span class="n">clawServo</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SBARunner</span><span class="w"> </span><span class="n">runner</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="n">armMotor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hardwareMap</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">DcMotorEx</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;armMotor&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="n">clawServo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hardwareMap</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">Servo</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clawServo&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="n">runner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SBARunner</span><span class="p">();</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gamepad1</span><span class="p">.</span><span class="na">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">            </span><span class="c1">// If A is pressed, run our SBA&#39;s</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">            </span><span class="n">runner</span><span class="p">.</span><span class="na">runSBAs</span><span class="p">(</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">MotorSBA</span><span class="p">(</span><span class="n">armMotor</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">),</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">ServoSBA</span><span class="p">(</span><span class="n">clawServo</span><span class="p">,</span><span class="w"> </span><span class="mf">0.85</span><span class="p">)</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">            </span><span class="p">);</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gamepad1</span><span class="p">.</span><span class="na">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">            </span><span class="c1">// If B is pressed, abort our SBA&#39;s</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">            </span><span class="n">runner</span><span class="p">.</span><span class="na">stop</span><span class="p">();</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a>
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="w">            </span><span class="c1">// Stop moving our arm motor by setting its</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="w">            </span><span class="c1">// target position to its current position</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="w">            </span><span class="n">armMotor</span><span class="p">.</span><span class="na">setTargetPosition</span><span class="p">(</span><span class="n">armMotor</span><span class="p">.</span><span class="na">getCurrentPosition</span><span class="p">());</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29"></a>
+<a id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="w">            </span><span class="c1">// Set arm power to 0</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="w">            </span><span class="n">armMotor</span><span class="p">.</span><span class="na">setPower</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-33" name="__codelineno-10-33"></a>
+<a id="__codelineno-10-34" name="__codelineno-10-34"></a><span class="w">        </span><span class="c1">// Run the SBARunner loop</span>
+<a id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">        </span><span class="n">runner</span><span class="p">.</span><span class="na">loop</span><span class="p">();</span>
+<a id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-37" name="__codelineno-10-37"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
 
 
 
