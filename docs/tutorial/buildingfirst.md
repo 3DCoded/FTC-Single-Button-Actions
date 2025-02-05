@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/hammer
+---
+
 # Building Your First SBA
 
 Now that you know how SBA's work, it's time to create your own!

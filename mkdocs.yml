@@ -36,6 +36,9 @@ theme:
       - content.tooltips
       - content.tabs.link
   name: material
+  custom_dir: docs/overrides
+  logo: assets/favicon.png
+  favicon: assets/favicon.png
   palette: 
 
     # Palette toggle for light mode
@@ -93,3 +96,4 @@ nav:
     - Table of Contents: tutorial/toc.md
     - How it Works (in detail): tutorial/howitworks.md
     - Building Your First SBA: tutorial/buildingfirst.md
+    - Using Scripts: tutorial/scripts.md

@@ -1,3 +1,7 @@
+---
+nocomments: true
+---
+
 # FTC Single Button Actions
 
 Use the SAME code for repeated actions between your TeleOp and Autonomous.
@@ -6,7 +10,7 @@ Use the SAME code for repeated actions between your TeleOp and Autonomous.
 
 FTC Single Button Actions (SBA's) is a framework designed to execute several tasks on your robot sequentially, with minimal effort.
 
-SBA's helped us, FTC Bruinbots #13599, to win 1st place Control Award at twice in a row in the 2024-2025 Into the Deep season.
+SBA's helped us, FTC Bruinbots #13599, to win 1st place Control Award twice in a row in the 2024-2025 Into the Deep season.
 
 ## How does it work?
 

@@ -1,3 +1,9 @@
+---
+icon: fontawesome/solid/wrench
+---
+
+# How it Works (in detail)
+
 On the homepage, a brief explanation of how SBA's work was given. Here, a deeper and more technical explanation will be given.
 
 !!! note "Don't be intimidated by the length of this page! There's a lot of useful information here that will help you debug and optimize your SBA's"
