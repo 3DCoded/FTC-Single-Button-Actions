@@ -1,0 +1,94 @@
+site_name: FTC Single Button Actions
+site_url: https://3dcoded.github.io/FTC-Single-Button-Actions
+repo_url: https://github.com/3DCoded/FTC-Single-Button-Actions
+plugins:
+  - search
+  - autolinks
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+      manual: false
+theme:
+  features:
+      - navigation.indexes
+      - navigation.footer
+      - content.code.copy
+      - navigation.expand
+      - navigation.instant
+      - navigation.top
+      - navigation.sections
+      - navigation.instant.prefetch
+      - search.suggest
+      - search.highlight
+      - search.share
+      - content.tooltips
+      - content.tabs.link
+  name: material
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+markdown_extensions:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.tilde
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: false
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - abbr
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+extra:
+  analytics:
+    provider: google
+    property: G-5FGSJ2G5TB
+  status:
+    new: Recently added
+    updated: Recently updated
+    deprecated: Deprecated
+nav:
+  - Home: index.md
+  - Tutorial:
+    - Table of Contents: tutorial/toc.md
+    - How it Works (in detail): tutorial/howitworks.md
