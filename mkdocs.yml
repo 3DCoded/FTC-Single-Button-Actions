@@ -92,3 +92,4 @@ nav:
   - Tutorial:
     - Table of Contents: tutorial/toc.md
     - How it Works (in detail): tutorial/howitworks.md
+    - Building Your First SBA: tutorial/buildingfirst.md
