@@ -49,26 +49,19 @@ public class SBALexer {
 
         // Populate motor dictionary
         motorMap.put("armMotor", bot.armMotor);
-        motorMap.put("viperMotorL", bot.viperMotorL);
-        motorMap.put("viperMotorR", bot.viperMotorR);
         // TODO: Figure out how to handle two motors at once (maybe a 2MOTOR operation)
 
         // Default motor powers
-        motorPowers.put("armMotor", Arm.ARM_POWER);
-        motorPowers.put("viperMotorL", Viper.VIPER_POWER);
-        motorPowers.put("viperMotorR", Viper.VIPER_POWER);
+        motorPowers.put("armMotor", 0.5);
 
         // Populate servo dictionary
-        servoMap.put("wristServo", bot.wristServo);
-        servoMap.put("basketServo", bot.basketServo);
+        servoMap.put("clawServo", bot.clawServo);
 
         // Populate constants
-        constants.put("basketOpenPos", Basket.OPEN_POS);
-        constants.put("basketClosedPos", Basket.CLOSED_POS);
-        constants.put("wallPickerArmPos", (double)WallPicker.wallPickerPos);
-        constants.put("wallPickerAfterArmPos", (double)WallPicker.afterWallPickerPos);
-        constants.put("wallPickerDistance", WallPicker.wallPickerDistance);
-        constants.put("wallPickerTolerance", WallPicker.wallPickerTolerance);
+        constants.put("clawOpenPos", 1);
+        constants.put("clawClosePos", 0.5);
+        constants.put("armUpPos", 100);
+        constants.put("armDownPos", 200);
     }
 
     public SBA[] scriptToSBAs(String script) {
