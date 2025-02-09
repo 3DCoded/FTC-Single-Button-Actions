@@ -21,7 +21,6 @@ public class SBALexer {
         MOTOR,
         SERVO,
         WAIT,
-        DISTANCE
     }
 
     public SBARunner runner;
@@ -97,8 +96,6 @@ public class SBALexer {
                 return runServo(params);
             case WAIT:
                 return runWait(params);
-            case DISTANCE:
-                return runDistance(params);
         }
         return null;
     }
@@ -159,13 +156,5 @@ public class SBALexer {
         int wait = Integer.parseInt(params[0]);
 
         return new WaitSBA(wait);
-    }
-
-    public SBA runDistance(String[] params) {
-        // Get target distance and tolerance
-        double target = getParam(params[0]);
-        double tolerance = getParam(params[1]);
-
-        return new DistanceSBA(target, tolerance);
     }
 }
