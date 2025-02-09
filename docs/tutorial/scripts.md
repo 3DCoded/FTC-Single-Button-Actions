@@ -89,7 +89,7 @@ public class MyTeleOp extends OpMode {
             "MOTOR armMotor 0.5 100");
         } else if (gamepad1.b) {
             // If B is pressed, abort our SBA's
-            lexer.runner.stop();
+            lexer.stop();
 
             // Stop moving our arm motor by setting its
             // target position to its current position

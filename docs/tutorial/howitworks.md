@@ -14,21 +14,25 @@ All SBA actions are their own class, implementing the `SBA` interface below:
 
 ```java
 public interface SBA {
-    boolean run();
     boolean sanity();
+    void init();
+    void loop();
+    boolean isBusy();
 }
 ```
 
-It's **super** simple! It only has two functions: `run()` and `sanity()`. 
+It has four functions: `sanity()`, `init()`, `loop()`, and `isBusy()`.
 
-Firstly, the `sanity()` function is run before `run()`. This is a safety feature. If `sanity()` returns `false`, the entire SBA is aborted. You can use `sanity()` to make sure your robot doesn't break in the middle of SBA.
+Firstly, the `sanity()` function is run as a safety feature. If `sanity()` returns `false`, the entire SBA is aborted. You can use `sanity()` to make sure your robot doesn't break in the middle of SBA.
 
-Next, the `run()` function is run. `run()` is where your SBA actaually happens. For example, if you're running a motor, `run()` is where you set power, mode, and target position. `run()` will return `false` while its running. Once your SBA finishes running (e.g. your motor encoder position hits your target position (1)).
+Next, the `init()` function is run. This is where you set up your SBA.
+
+Then, the `loop()` function is run. This is repeated until `isBusy()` returns `false`, when your SBA completes (e.g. your motor encoder position hits your target position (1)).
 {.annotate}
 
 1. You shouldn't wait until your encoder position is **equal** to your target position, as this will make your motor move back and forth almost indefinitely, freezing your robot. Instead, you can calculate the difference from your current position to the target position, then check if it is below a certain tolerance value.
 ```java
-return Math.abs(curPos - targetPos) <= tolerance;
+return Math.abs(curPos - targetPos) > tolerance;
 ```
 
 ## Prebuilt SBA's
