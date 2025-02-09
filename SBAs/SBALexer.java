@@ -2,14 +2,8 @@ package org.firstinspires.ftc.teamcode.SBAs;
 
 import static org.firstinspires.ftc.teamcode.Utils.GlobalBot.bot;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
-
-import org.firstinspires.ftc.teamcode.Arm;
-import org.firstinspires.ftc.teamcode.Basket;
-import org.firstinspires.ftc.teamcode.Viper;
-import org.firstinspires.ftc.teamcode.WallPicker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,6 +41,7 @@ public class SBALexer {
 
         // Populate motor dictionary
         motorMap.put("armMotor", bot.armMotor);
+
         // TODO: Figure out how to handle two motors at once (maybe a 2MOTOR operation)
 
         // Default motor powers
@@ -56,10 +51,10 @@ public class SBALexer {
         servoMap.put("clawServo", bot.clawServo);
 
         // Populate constants
-        constants.put("clawOpenPos", 1);
-        constants.put("clawClosePos", 0.5);
-        constants.put("armUpPos", 100);
-        constants.put("armDownPos", 200);
+        constants.put("clawOpenPos", 1.0);
+        constants.put("clawClosedPos", 0.5); // XTRA
+        constants.put("armUpPos", 100.0);
+        constants.put("armDownPos", 200.0);
     }
 
     public SBA[] scriptToSBAs(String script) {
@@ -141,9 +136,12 @@ public class SBALexer {
 
         power = default power for that motor
          */
-        else {
+        else if (params.length == 2) {
             power = motorPowers.get(motorName);
             target = (int)getParam(params[1]);
+        }
+        else {
+            return new WaitSBA(0);
         }
 
         return new MotorSBA(motor, power, target);
@@ -161,7 +159,7 @@ public class SBALexer {
 
     public SBA runWait(String[] params) {
         // Get wait time (ms)
-        int wait = getParam(params[0]);
+        int wait = (int)getParam(params[0]);
 
         return new WaitSBA(wait);
     }

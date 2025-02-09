@@ -1,14 +1,14 @@
 package org.firstinspires.ftc.teamcode.SBAs;
 
 public class SBARunner {
-    public SBA[] curSBAs;
-    public int curIdx;
-    public int initIdx;
+    public SBA[] curSBAs = new SBA[] {};
+    public int curIdx = 0;
+    public int initIdx = 0;
 
     public void runSBAs(SBA... sbas) {
         curSBAs = sbas;
         curIdx = 0;
-        initIdx = 0;
+        initIdx = -1;
     }
 
     public void stop() {
@@ -27,7 +27,7 @@ public class SBARunner {
             sba.init();
             initIdx = curIdx;
         }
-        sba.loop()
+        sba.loop();
         if (!sba.isBusy()) { // Move on to next SBA if current SBA finishes
             curIdx ++;
             if (curIdx > curSBAs.length - 1) { stop(); } // End SBA list if curIdx gets past the list limit
