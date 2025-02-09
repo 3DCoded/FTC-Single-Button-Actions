@@ -8,16 +8,19 @@ public class WaitSBA implements SBA {
         this.waitMs = waitMs;
     }
 
-    public boolean run() {
+    public boolean sanity() { return true; }
+
+    public void init() { 
+        startMs = System.currentTimeMillis();
+    }
+
+    public void loop() {}
+
+    public boolean isBusy() {
         // Compare current time to start time
         double curTimeInMillis = System.currentTimeMillis();
         double timeDiff = curTimeInMillis - startMs;
         // Check if waitMs has passed
-        return timeDiff >= waitMs;
-    }
-
-    public boolean sanity() { 
-        startMs = System.currentTimeMillis();
-        return true;
+        return timeDiff < waitMs;
     }
 }

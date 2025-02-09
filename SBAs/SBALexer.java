@@ -88,6 +88,14 @@ public class SBALexer {
         runner.loop();
     }
 
+    public void stop() {
+        runner.stop();
+    }
+
+    public boolean isBusy() {
+        return runner.isBusy();
+    }
+
     public SBA handleAction(Action action, String[] params) {
         switch (action) {
             case MOTOR:
