@@ -37,7 +37,7 @@ Each line consists of a command, then parameters, each separated by spaces.
 
 Here are the supported commands:
 
-```
+```asm
 MOTOR <motor> <power> <target>
 MOTOR <motor> <target>
 SERVO <servo> <target>
@@ -103,6 +103,88 @@ public class MyTeleOp extends OpMode {
         lexer.loop();
     }
 }
+```
+
+## Motors and Servos
+
+To change which motors and servos are included in the `SBALexer`, you'll need to modify the initializer in `SBALexer.java`. 
+
+```java title="SBALexer.java" hl_lines="7 14"
+public class SBALexer {
+    ...
+    public SBALexer() {
+        runner = new SBARunner();
+
+        // Populate motor dictionary
+        motorMap.put("armMotor", bot.armMotor);
+        // TODO: Figure out how to handle two motors at once (maybe a 2MOTOR operation)
+
+        // Default motor powers
+        motorPowers.put("armMotor", 0.5);
+
+        // Populate servo dictionary
+        servoMap.put("clawServo", bot.clawServo);
+        ...
+    }
+    ...
+}
+```
+
+The highlighted lines indicate where motors and servos are setup with the `SBALexer`. Say you have a linear slide on your robot, and you want to use it with `SBALexer`. 
+
+Assuming it's declared as `bot.slideMotor`, you can add this line to the initializer:
+
+```java title="SBALexer.java"
+motorMap.put("slideMotor", bot.slideMotor);
+```
+
+You can also specifiy a default power to run the motor with.
+
+```java title="SBALexer.java"
+motorPowers.put("slideMotor", 0.5);
+```
+
+Similarly, you can add a new servo `bot.wristServo` with:
+
+```java title="SBALexer.java"
+servoMap.put("wristServo", bot.wristServo);
+```
+
+## Constants
+
+You can also make use of constants in `SBALexer`. Also setup in the initializer, you can use constants in place of numbers anywhere in a SBA script.
+
+```java title="SBALexer.java" hl_lines="6-9"
+public class SBALexer {
+    ...
+    public SBALexer() {
+        ...
+        // Populate constants
+        constants.put("clawOpenPos", 1);
+        constants.put("clawClosePos", 0.5);
+        constants.put("armUpPos", 100);
+        constants.put("armDownPos", 200);
+        ...
+    }
+    ...
+}
+```
+
+You can use these constants in your SBA scripts like in this example that will open the claw:
+
+```asm
+SERVO clawServo clawOpenPos
+```
+
+Using constants, we can refactor our existing SBA script routine to use constants:
+
+```asm
+MOTOR armMotor armUpPos
+SERVO clawServo clawOpenPos
+MOTOR armMotor armDownPos
+SERVO clawServo clawClosePos
+WAIT 500
+MOTOR armMotor armUpPos
 ```
 
 ## Using the Dashboard
