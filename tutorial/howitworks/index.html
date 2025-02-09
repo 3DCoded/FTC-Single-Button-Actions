@@ -767,17 +767,22 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">SBA</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">run</span><span class="p">();</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">sanity</span><span class="p">();</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">SBA</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">sanity</span><span class="p">();</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">();</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">();</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isBusy</span><span class="p">();</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>It's <strong>super</strong> simple! It only has two functions: <code>run()</code> and <code>sanity()</code>. </p>
-<p>Firstly, the <code>sanity()</code> function is run before <code>run()</code>. This is a safety feature. If <code>sanity()</code> returns <code>false</code>, the entire SBA is aborted. You can use <code>sanity()</code> to make sure your robot doesn't break in the middle of SBA.</p>
-<p class="annotate">Next, the <code>run()</code> function is run. <code>run()</code> is where your SBA actaually happens. For example, if you're running a motor, <code>run()</code> is where you set power, mode, and target position. <code>run()</code> will return <code>false</code> while its running. Once your SBA finishes running (e.g. your motor encoder position hits your target position (1)).</p>
+<p>It has four functions: <code>sanity()</code>, <code>init()</code>, <code>loop()</code>, and <code>isBusy()</code>.</p>
+<p>Firstly, the <code>sanity()</code> function is run as a safety feature. If <code>sanity()</code> returns <code>false</code>, the entire SBA is aborted. You can use <code>sanity()</code> to make sure your robot doesn't break in the middle of SBA.</p>
+<p>Next, the <code>init()</code> function is run. This is where you set up your SBA.</p>
+<p class="annotate">Then, the <code>loop()</code> function is run. This is repeated until <code>isBusy()</code> returns <code>false</code>, when your SBA completes (e.g. your motor encoder position hits your target position (1)).</p>
 <ol>
 <li>You shouldn't wait until your encoder position is <strong>equal</strong> to your target position, as this will make your motor move back and forth almost indefinitely, freezing your robot. Instead, you can calculate the difference from your current position to the target position, then check if it is below a certain tolerance value.
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">curPos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPos</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">tolerance</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">curPos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">targetPos</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">tolerance</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div></li>
 </ol>
 <h2 id="prebuilt-sbas">Prebuilt SBA's</h2>
