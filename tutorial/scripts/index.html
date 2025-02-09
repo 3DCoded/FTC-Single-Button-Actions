@@ -500,6 +500,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#motors-and-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motors and Servos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-the-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       Using the Dashboard
@@ -587,6 +605,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#motors-and-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motors and Servos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-the-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       Using the Dashboard
@@ -654,10 +690,10 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>MOTOR &lt;motor&gt; &lt;power&gt; &lt;target&gt;
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>MOTOR &lt;motor&gt; &lt;target&gt;
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>SERVO &lt;servo&gt; &lt;target&gt;
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>WAIT &lt;ms&gt;
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nf">MOTOR</span><span class="w"> </span><span class="err">&lt;</span><span class="no">motor</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="no">power</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="no">target</span><span class="err">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nf">MOTOR</span><span class="w"> </span><span class="err">&lt;</span><span class="no">motor</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="no">target</span><span class="err">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nf">SERVO</span><span class="w"> </span><span class="err">&lt;</span><span class="no">servo</span><span class="err">&gt;</span><span class="w"> </span><span class="err">&lt;</span><span class="no">target</span><span class="err">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nf">WAIT</span><span class="w"> </span><span class="err">&lt;</span><span class="no">ms</span><span class="err">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Here's the sequence from the last example in SBASL:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
@@ -754,10 +790,9 @@
 </span><a id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="using-the-dashboard">Using the Dashboard</h2>
-<p>Here's where the real advantage of using SBASL comes in. If you use <a href="https://acmerobotics.github.io/ftc-dashboard/">FTC Dashboard</a>, you can edit static variables in the browser, and view their results live <strong>without changing code and restarting the robot</strong>. This is a huge timesaver during testing.</p>
-<p>To make use of the FTC Dashboard with SBASL, let's modify our TeleOp:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<h2 id="motors-and-servos">Motors and Servos</h2>
+<p>To change which motors and servos are included in the <code>SBALexer</code>, you'll need to modify the initializer in <code>SBALexer.java</code>. </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SBALexer.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
@@ -772,27 +807,120 @@
 <span class="normal"><a href="#__codelineno-5-13">13</a></span>
 <span class="normal"><a href="#__codelineno-5-14">14</a></span>
 <span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="hll"><span class="nd">@Config</span>
-</span><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nd">@TeleOp</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;MyTeleOp&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyTeleOp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">OpMode</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="p">...</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
-</span><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="p">...</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gamepad1</span><span class="p">.</span><span class="na">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">            </span><span class="c1">// If A is pressed, run our SBA script</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="hll"><span class="w">            </span><span class="n">lexer</span><span class="p">.</span><span class="na">runScript</span><span class="p">(</span><span class="n">script</span><span class="p">);</span>
-</span><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">        </span><span class="p">...</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SBALexer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SBALexer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">        </span><span class="n">runner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SBARunner</span><span class="p">();</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">        </span><span class="c1">// Populate motor dictionary</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="hll"><span class="w">        </span><span class="n">motorMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;armMotor&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bot</span><span class="p">.</span><span class="na">armMotor</span><span class="p">);</span>
+</span><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="c1">// TODO: Figure out how to handle two motors at once (maybe a 2MOTOR operation)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="c1">// Default motor powers</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="n">motorPowers</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;armMotor&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="c1">// Populate servo dictionary</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="hll"><span class="w">        </span><span class="n">servoMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;clawServo&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bot</span><span class="p">.</span><span class="na">clawServo</span><span class="p">);</span>
+</span><a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="p">...</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The highlighted lines indicate where motors and servos are setup with the <code>SBALexer</code>. Say you have a linear slide on your robot, and you want to use it with <code>SBALexer</code>. </p>
+<p>Assuming it's declared as <code>bot.slideMotor</code>, you can add this line to the initializer:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SBALexer.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">motorMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;slideMotor&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bot</span><span class="p">.</span><span class="na">slideMotor</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>You can also specifiy a default power to run the motor with.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SBALexer.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">motorPowers</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;slideMotor&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Similarly, you can add a new servo <code>bot.wristServo</code> with:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SBALexer.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">servoMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;wristServo&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bot</span><span class="p">.</span><span class="na">wristServo</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="constants">Constants</h2>
+<p>You can also make use of constants in <code>SBALexer</code>. Also setup in the initializer, you can use constants in place of numbers anywhere in a SBA script.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">SBALexer.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SBALexer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SBALexer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">        </span><span class="p">...</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">        </span><span class="c1">// Populate constants</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="hll"><span class="w">        </span><span class="n">constants</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;clawOpenPos&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="hll"><span class="w">        </span><span class="n">constants</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;clawClosePos&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+</span><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="hll"><span class="w">        </span><span class="n">constants</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;armUpPos&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+</span><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="hll"><span class="w">        </span><span class="n">constants</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;armDownPos&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+</span><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">        </span><span class="p">...</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>You can use these constants in your SBA scripts like in this example that will open the claw:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nf">SERVO</span><span class="w"> </span><span class="no">clawServo</span><span class="w"> </span><span class="no">clawOpenPos</span>
+</code></pre></div></td></tr></table></div>
+<p>Using constants, we can refactor our existing SBA script routine to use constants:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nf">MOTOR</span><span class="w"> </span><span class="no">armMotor</span><span class="w"> </span><span class="no">armUpPos</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nf">SERVO</span><span class="w"> </span><span class="no">clawServo</span><span class="w"> </span><span class="no">clawOpenPos</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nf">MOTOR</span><span class="w"> </span><span class="no">armMotor</span><span class="w"> </span><span class="no">armDownPos</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="nf">SERVO</span><span class="w"> </span><span class="no">clawServo</span><span class="w"> </span><span class="no">clawClosePos</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="nf">WAIT</span><span class="w"> </span><span class="mi">500</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="nf">MOTOR</span><span class="w"> </span><span class="no">armMotor</span><span class="w"> </span><span class="no">armUpPos</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="using-the-dashboard">Using the Dashboard</h2>
+<p>Here's where the real advantage of using SBASL comes in. If you use <a href="https://acmerobotics.github.io/ftc-dashboard/">FTC Dashboard</a>, you can edit static variables in the browser, and view their results live <strong>without changing code and restarting the robot</strong>. This is a huge timesaver during testing.</p>
+<p>To make use of the FTC Dashboard with SBASL, let's modify our TeleOp:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="hll"><span class="nd">@Config</span>
+</span><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nd">@TeleOp</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;MyTeleOp&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyTeleOp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">OpMode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">gamepad1</span><span class="p">.</span><span class="na">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">            </span><span class="c1">// If A is pressed, run our SBA script</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="hll"><span class="w">            </span><span class="n">lexer</span><span class="p">.</span><span class="na">runScript</span><span class="p">(</span><span class="n">script</span><span class="p">);</span>
+</span><a id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">        </span><span class="p">...</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Now you can edit your script from the browser! </p>
 <h2 id="newlines-in-the-dashboard">Newlines in the Dashboard</h2>
 <p>Unfortunately, you can't enter multiline strings on the FTC Dashboard. To work around this, you can use a substitute newline, like <code class="highlight"><span class="s">&quot;/&quot;</span></code>. To implement, simply modify one line in your OpMode:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">lexer</span><span class="p">.</span><span class="na">runScript</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">));</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">lexer</span><span class="p">.</span><span class="na">runScript</span><span class="p">(</span><span class="n">script</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div>
 
 
