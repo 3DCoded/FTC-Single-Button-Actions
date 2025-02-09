@@ -2,20 +2,22 @@ package org.firstinspires.ftc.teamcode.SBAs;
 
 public class WaitSBA implements SBA {
     public double waitMs;
-    private double startMs;
+    private double startMs = -1;
 
     public WaitSBA(double waitMs) {
         this.waitMs = waitMs;
-        startMs = System.currentTimeMillis();
     }
 
     public boolean run() {
         // Compare current time to start time
-        double curMs = System.currentTimeMillis();
-        double timeDiff = curMs - startMs;
+        double curTimeInMillis = System.currentTimeMillis();
+        double timeDiff = curTimeInMillis - startMs;
         // Check if waitMs has passed
         return timeDiff >= waitMs;
     }
 
-    public boolean sanity() { return true; }
+    public boolean sanity() { 
+        startMs = System.currentTimeMillis();
+        return true;
+    }
 }

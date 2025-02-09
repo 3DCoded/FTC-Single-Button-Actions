@@ -35,8 +35,7 @@ public class SBALexer {
     EXAMPLE SCRIPT:
 
     ARM wallPickerArmPos
-    DISTANCE wallPickerDistance wallPickerTolerance
-    SERVO basketServo baksetOpenPos
+    SERVO basketServo baksetClosePos
     WAIT 250
     ARM wallPickerAfterArmPos
 
@@ -72,6 +71,7 @@ public class SBALexer {
                 continue;
             }
             String[] components = line.split(" "); // Split line by spaces into components
+            // MOTOR armMotor 0.5 1000
             Action action = Action.valueOf(components[0]); // Action is the first component
             String[] params = Arrays.copyOfRange(components, 1, components.length); // Parameters are everything after the action
             sbas.add(handleAction(action, params)); // Convert the action + params to an SBA
@@ -153,7 +153,7 @@ public class SBALexer {
 
     public SBA runWait(String[] params) {
         // Get wait time (ms)
-        int wait = Integer.parseInt(params[0]);
+        int wait = getParam(params[0]);
 
         return new WaitSBA(wait);
     }

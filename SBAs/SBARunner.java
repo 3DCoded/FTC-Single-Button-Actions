@@ -17,6 +17,7 @@ public class SBARunner {
         // Ensure we're currently running an SBA list
         if (curSBAs.length == 0 || curSBAs.length < curIdx - 1) { return; }
         SBA sba = curSBAs[curIdx];
+        // TODO: sba.init()
         if (!sba.sanity()) { stop(); } // Quit if sanity check fails
         if (sba.run()) { // Move on to next SBA if current SBA finishes
             curIdx ++;
