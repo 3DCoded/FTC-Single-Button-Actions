@@ -9,16 +9,18 @@ Now that you know how SBA's work, it's time to create your own!
 On our robot, we used SBA's to curl and uncurl our arm, which required several coordinated motions of both our arm and wrist to prevent damaging our robot.
 
 ![](https://placehold.co/600x400/?text=Image+Or+Video+Of+Robot)
+<!-- ![](../assets/media/uncurl_arm.mov) -->
+<!-- <video src="../assets/media/uncurl_arm.mov"></video> -->
 
-For this example, we'll create a simpler SBA sequence for a simpler arm. 
+For this example, we'll create a simpler SBA sequence for a simpler arm.
 
 ![](a5cc2fc5.png)
 
-This arm has only one motor to move the arm, and one servo to open or close the claw. 
+This arm has only one motor to move the arm, and one servo to open or close the claw.
 
 ## Perform the Motion in Real Life
 
-First, we need to perform the motion in real life. To do this, you'll need to add telemetry to your OpMode so we can gather positioning data. 
+First, we need to perform the motion in real life. To do this, you'll need to add telemetry to your OpMode so we can gather positioning data.
 
 Here's an example for the arm motor and claw servo:
 
@@ -100,7 +102,7 @@ Now we that we recorded the motion in real life, it's time to turn it into code!
 
 ## Converting to SBA's
 
-In the previous section, we recorded the motion of the robot in real life. Now, we have to convert it to SBA's. 
+In the previous section, we recorded the motion of the robot in real life. Now, we have to convert it to SBA's.
 
 First, create a table like this:
 
@@ -122,7 +124,7 @@ Now, we'll go through each row and convert it to SBA's:
 | Close Claw | | 0.5 | `#!java new ServoSBA(clawServo, 0.5)` |
 | Lift Arm | 100 | | `#!java new MotorSBA(armMotor, 0.5, 100)` |
 
-For our arm power, we're using `0.5`. 
+For our arm power, we're using `0.5`.
 
 Finally, put these together in a list, and pass it to `runSBAs()`
 

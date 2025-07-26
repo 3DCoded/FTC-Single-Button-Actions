@@ -1,5 +1,5 @@
 site_name: FTC Single Button Actions
-site_url: https://3dcoded.github.io/FTC-Single-Button-Actions
+site_url: https://ftc.3dcoded.xyz
 repo_url: https://github.com/3DCoded/FTC-Single-Button-Actions
 plugins:
   - search
@@ -39,19 +39,31 @@ theme:
   custom_dir: docs/overrides
   logo: assets/favicon.png
   favicon: assets/favicon.png
-  palette: 
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
 
     # Palette toggle for light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: purple
+      accent: orange
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: purple
+      accent: yellow
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode
+        name: Switch to system preference
+
 markdown_extensions:
   - pymdownx.critic
   - pymdownx.caret

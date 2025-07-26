@@ -6,6 +6,8 @@ icon: fontawesome/solid/list-ol
 
 !!! info "Please read and perform each of these steps carefully!"
 
-1. [How it works (in detail)](howitworks.md)
-1. [Building your first SBA](buildingfirst.md)
-1. [Using scripts](scripts.md)
+[:fontawesome-solid-wrench: How it works (in detail)](howitworks.md){.md-button}
+
+[:fontawesome-solid-hammer: Building your first SBA](buildingfirst.md){.md-button}
+
+[:fontawesome-solid-scroll: Using scripts](scripts.md){.md-button}
