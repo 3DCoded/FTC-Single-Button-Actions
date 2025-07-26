@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://3dcoded.github.io/FTC-Single-Button-Actions/tutorial/buildingfirst/">
+        <link rel="canonical" href="https://ftc.3dcoded.xyz/tutorial/buildingfirst/">
       
       
         <link rel="prev" href="../howitworks/">
@@ -141,9 +141,19 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -151,9 +161,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="yellow"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -593,11 +603,14 @@
 <p>Now that you know how SBA's work, it's time to create your own!</p>
 <p>On our robot, we used SBA's to curl and uncurl our arm, which required several coordinated motions of both our arm and wrist to prevent damaging our robot.</p>
 <p><a class="glightbox" href="https://placehold.co/600x400/?text=Image+Or+Video+Of+Robot" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="https://placehold.co/600x400/?text=Image+Or+Video+Of+Robot" /></a></p>
-<p>For this example, we'll create a simpler SBA sequence for a simpler arm. </p>
+<!-- ![](../assets/media/uncurl_arm.mov) -->
+<!-- <video src="../assets/media/uncurl_arm.mov"></video> -->
+
+<p>For this example, we'll create a simpler SBA sequence for a simpler arm.</p>
 <p><a class="glightbox" href="../../assets/images/a5cc2fc5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../assets/images/a5cc2fc5.png" /></a></p>
-<p>This arm has only one motor to move the arm, and one servo to open or close the claw. </p>
+<p>This arm has only one motor to move the arm, and one servo to open or close the claw.</p>
 <h2 id="perform-the-motion-in-real-life">Perform the Motion in Real Life</h2>
-<p>First, we need to perform the motion in real life. To do this, you'll need to add telemetry to your OpMode so we can gather positioning data. </p>
+<p>First, we need to perform the motion in real life. To do this, you'll need to add telemetry to your OpMode so we can gather positioning data.</p>
 <p>Here's an example for the arm motor and claw servo:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -669,7 +682,7 @@
 </ol>
 <p>Now we that we recorded the motion in real life, it's time to turn it into code!</p>
 <h2 id="converting-to-sbas">Converting to SBA's</h2>
-<p>In the previous section, we recorded the motion of the robot in real life. Now, we have to convert it to SBA's. </p>
+<p>In the previous section, we recorded the motion of the robot in real life. Now, we have to convert it to SBA's.</p>
 <p>First, create a table like this:</p>
 <table>
 <thead>
@@ -740,7 +753,7 @@
 </tr>
 </tbody>
 </table>
-<p>For our arm power, we're using <code>0.5</code>. </p>
+<p>For our arm power, we're using <code>0.5</code>.</p>
 <p>Finally, put these together in a list, and pass it to <code>runSBAs()</code></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
