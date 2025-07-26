@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.SBAs;
+package org.firstinspires.ftc.teamcode.NextYearTesting.SBAs;
 
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -10,15 +10,15 @@ public class ServoSBA implements SBA {
         this.servo = servo;
         this.targetPos = targetPos;
     }
-    
-    public boolean sanity() { return true; }
 
     public void init() {
         // Move servo to target position
         servo.setPosition(targetPos);
     }
 
-    public void loop() { }
+    public void loop() {}
 
     public boolean isBusy() { return false; }
+
+    public boolean sanity() { return true; }
 }

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.SBAs;
+package org.firstinspires.ftc.teamcode.NextYearTesting.SBAs;
 
 public interface SBA {
     boolean sanity();

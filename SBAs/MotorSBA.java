@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.SBAs;
+package org.firstinspires.ftc.teamcode.NextYearTesting.SBAs;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -38,15 +38,6 @@ public class MotorSBA implements SBA {
         this.maxPos = maxPos;
     }
 
-    public boolean sanity() {
-        // If no bounds are set, no sanity check is required
-        if (!useBounds) { return true; }
-
-        // If bounds are set, ensure motor current pos is within bounds
-        int curPos = motor.getCurrentPosition();
-        return curPos > minPos && curPos < maxPos;
-    }
-
     public void init() {
         // Set motor target position
         motor.setPower(power);
@@ -54,13 +45,22 @@ public class MotorSBA implements SBA {
         motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
-    public void loop() { }
+    public void loop() {}
 
     public boolean isBusy() {
         int curPos = motor.getCurrentPosition();
         // Calculate difference from current to target positions
         int error = Math.abs(curPos - targetPos);
         // If error is less than tolerance, continue on to next operation
-        return error > tolerance;
+        return error >= tolerance;
+    }
+
+    public boolean sanity() {
+        // If no bounds are set, no sanity check is required
+        if (!useBounds) { return true; }
+
+        // If bounds are set, ensure motor current pos is within bounds
+        int curPos = motor.getCurrentPosition();
+        return curPos > minPos && curPos < maxPos;
     }
 }

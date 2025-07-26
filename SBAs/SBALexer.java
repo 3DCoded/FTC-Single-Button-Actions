@@ -1,9 +1,15 @@
-package org.firstinspires.ftc.teamcode.SBAs;
+package org.firstinspires.ftc.teamcode.NextYearTesting.SBAs;
 
-import static org.firstinspires.ftc.teamcode.Utils.GlobalBot.bot;
+import static org.firstinspires.ftc.teamcode.NextYearTesting.Utils.GlobalBot.bot;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.Servo;
+
+import org.firstinspires.ftc.teamcode.Arm;
+import org.firstinspires.ftc.teamcode.Basket;
+import org.firstinspires.ftc.teamcode.Viper;
+import org.firstinspires.ftc.teamcode.WallPicker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +21,7 @@ public class SBALexer {
         MOTOR,
         SERVO,
         WAIT,
+        DISTANCE
     }
 
     public SBARunner runner;
@@ -29,7 +36,8 @@ public class SBALexer {
     EXAMPLE SCRIPT:
 
     ARM wallPickerArmPos
-    SERVO basketServo baksetClosePos
+    DISTANCE wallPickerDistance wallPickerTolerance
+    SERVO basketServo baksetOpenPos
     WAIT 250
     ARM wallPickerAfterArmPos
 
@@ -41,20 +49,26 @@ public class SBALexer {
 
         // Populate motor dictionary
         motorMap.put("armMotor", bot.armMotor);
-
+        motorMap.put("viperMotorL", bot.viperMotorL);
+        motorMap.put("viperMotorR", bot.viperMotorR);
         // TODO: Figure out how to handle two motors at once (maybe a 2MOTOR operation)
 
         // Default motor powers
-        motorPowers.put("armMotor", 0.5);
+        motorPowers.put("armMotor", Arm.ARM_POWER);
+        motorPowers.put("viperMotorL", Viper.VIPER_POWER);
+        motorPowers.put("viperMotorR", Viper.VIPER_POWER);
 
         // Populate servo dictionary
-        servoMap.put("clawServo", bot.clawServo);
+        servoMap.put("wristServo", bot.wristServo);
+        servoMap.put("basketServo", bot.basketServo);
 
         // Populate constants
-        constants.put("clawOpenPos", 1.0);
-        constants.put("clawClosedPos", 0.5); // XTRA
-        constants.put("armUpPos", 100.0);
-        constants.put("armDownPos", 200.0);
+        constants.put("basketOpenPos", Basket.OPEN_POS);
+        constants.put("basketClosedPos", Basket.CLOSED_POS);
+        constants.put("wallPickerArmPos", (double)WallPicker.wallPickerPos);
+        constants.put("wallPickerAfterArmPos", (double)WallPicker.afterWallPickerPos);
+        constants.put("wallPickerDistance", WallPicker.wallPickerDistance);
+        constants.put("wallPickerTolerance", WallPicker.wallPickerTolerance);
     }
 
     public SBA[] scriptToSBAs(String script) {
@@ -66,7 +80,6 @@ public class SBALexer {
                 continue;
             }
             String[] components = line.split(" "); // Split line by spaces into components
-            // MOTOR armMotor 0.5 1000
             Action action = Action.valueOf(components[0]); // Action is the first component
             String[] params = Arrays.copyOfRange(components, 1, components.length); // Parameters are everything after the action
             sbas.add(handleAction(action, params)); // Convert the action + params to an SBA
@@ -83,14 +96,6 @@ public class SBALexer {
         runner.loop();
     }
 
-    public void stop() {
-        runner.stop();
-    }
-
-    public boolean isBusy() {
-        return runner.isBusy();
-    }
-
     public SBA handleAction(Action action, String[] params) {
         switch (action) {
             case MOTOR:
@@ -99,6 +104,8 @@ public class SBALexer {
                 return runServo(params);
             case WAIT:
                 return runWait(params);
+            case DISTANCE:
+                return runDistance(params);
         }
         return null;
     }
@@ -136,12 +143,9 @@ public class SBALexer {
 
         power = default power for that motor
          */
-        else if (params.length == 2) {
+        else {
             power = motorPowers.get(motorName);
             target = (int)getParam(params[1]);
-        }
-        else {
-            return new WaitSBA(0);
         }
 
         return new MotorSBA(motor, power, target);
@@ -159,8 +163,16 @@ public class SBALexer {
 
     public SBA runWait(String[] params) {
         // Get wait time (ms)
-        int wait = (int)getParam(params[0]);
+        int wait = Integer.parseInt(params[0]);
 
         return new WaitSBA(wait);
+    }
+
+    public SBA runDistance(String[] params) {
+        // Get target distance and tolerance
+        double target = getParam(params[0]);
+        double tolerance = getParam(params[1]);
+
+        return new DistanceSBA(target, tolerance);
     }
 }
