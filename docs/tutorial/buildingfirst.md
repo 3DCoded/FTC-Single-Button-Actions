@@ -8,9 +8,7 @@ Now that you know how SBA's work, it's time to create your own!
 
 On our robot, we used SBA's to curl and uncurl our arm, which required several coordinated motions of both our arm and wrist to prevent damaging our robot.
 
-![](https://placehold.co/600x400/?text=Image+Or+Video+Of+Robot)
-<!-- ![](../assets/media/uncurl_arm.mov) -->
-<!-- <video src="../assets/media/uncurl_arm.mov"></video> -->
+<video src="../../assets/media/uncurl_arm.mp4" autoplay muted type="video/mp4" controls></video>
 
 For this example, we'll create a simpler SBA sequence for a simpler arm.
 

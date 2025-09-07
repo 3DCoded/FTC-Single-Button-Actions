@@ -38,7 +38,7 @@ Now, to actually run these SBA's, the actions are simply played back, with each 
 
 1. [Download](https://github.com/3DCoded/FTC-Single-Button-Actions) this repository as a zip.
 2. Extract the zip file to a folder.
-3. Copy the `SBAs` and `Utils` folder to your `TeamCode` folder.
+3. Copy the `SBAs` folder to your `TeamCode` folder.
 
 ## Tutorial
 
